@@ -3,13 +3,6 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 import datetime
 
 
-env = Environment(
-    loader=FileSystemLoader('.'),
-    autoescape=select_autoescape(['html', 'xml'])
-)
-
-template = env.get_template('template.html')
-
 def est_counter():
     est_year = 1920
     now_year = datetime.date.today().year
@@ -21,34 +14,54 @@ def est_counter():
     else:
         return f'{num_of_years} года'
 
-print(est_counter())
+
+env = Environment(
+    loader=FileSystemLoader('.'),
+    autoescape=select_autoescape(['html', 'xml'])
+)
+
+template = env.get_template('template.html')
 
 rendered_page = template.render(
     established_counter=est_counter(),
-    wine1_title='Изабелла',
-    wine1_sort='Изабелла',
-    wine1_price=350,
-    wine1_img='images/izabella.png',
-    wine2_title='Гранатовый браслет',
-    wine2_sort='Мускат розовый',
-    wine2_price=350,
-    wine2_img='images/granatovyi_braslet.png',
-    wine3_title='Шардоне',
-    wine3_sort='Шардоне',
-    wine3_price=350,
-    wine3_img='images/shardone.png',
-    wine4_title='Белая леди',
-    wine4_sort='Дамский пальчик',
-    wine4_price=399,
-    wine4_img='images/belaya_ledi.png',
-    wine5_title='Ркацители',
-    wine5_sort='Ркацители',
-    wine5_price=499,
-    wine5_img='images/rkaciteli.png',
-    wine6_title='Хванчкара',
-    wine6_sort='Александраули',
-    wine6_price=550,
-    wine6_img='images/hvanchkara.png',
+    wines=[
+        {
+            'wine_title': 'Изабелла',
+            'wine_sort': 'Изабелла',
+            'wine_price': 350,
+            'wine_img': 'images/izabella.png',
+        },
+        {
+            'wine_title': 'Гранатовый браслет',
+            'wine_sort': 'Мускат розовый',
+            'wine_price': 350,
+            'wine_img': 'images/granatovyi_braslet.png',
+        },
+        {
+            'wine_title': 'Шардоне',
+            'wine_sort': 'Шардоне',
+            'wine_price': 350,
+            'wine_img': 'images/shardone.png',
+        },
+        {
+            'wine_title': 'Белая леди',
+            'wine_sort': 'Дамский пальчик',
+            'wine_price': 399,
+            'wine_img': 'images/belaya_ledi.png',
+        },
+        {
+            'wine_title': 'Ркацители',
+            'wine_sort': 'Ркацители',
+            'wine_price': 499,
+            'wine_img': 'images/rkaciteli.png',
+        },
+        {
+            'wine_title': 'Хванчкара',
+            'wine_sort': 'Александраули',
+            'wine_price': 550,
+            'wine_img': 'images/hvanchkara.png',
+        },
+    ]
 )
 
 with open('index.html', 'w', encoding="utf8") as file:
