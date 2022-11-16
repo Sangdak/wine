@@ -1,5 +1,6 @@
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+import datetime
 
 
 env = Environment(
@@ -10,6 +11,7 @@ env = Environment(
 template = env.get_template('template.html')
 
 rendered_page = template.render(
+    established_counter=datetime.date.today().year - 1920,
     wine1_title='Изабелла',
     wine1_sort='Изабелла',
     wine1_price=350,
