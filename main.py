@@ -10,8 +10,21 @@ env = Environment(
 
 template = env.get_template('template.html')
 
+def est_counter():
+    est_year = 1920
+    now_year = datetime.date.today().year
+    num_of_years = now_year - est_year
+    if 10 < num_of_years % 100 < 20 or num_of_years % 10 in (0, 5, 6, 7, 8, 9):
+        return f'{num_of_years} лет'
+    elif num_of_years % 10 == 1:
+        return f'{num_of_years} год'
+    else:
+        return f'{num_of_years} года'
+
+print(est_counter())
+
 rendered_page = template.render(
-    established_counter=datetime.date.today().year - 1920,
+    established_counter=est_counter(),
     wine1_title='Изабелла',
     wine1_sort='Изабелла',
     wine1_price=350,
