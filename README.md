@@ -1,13 +1,29 @@
-# Новое русское вино
+# New Russian Wine
 
-Сайт магазина авторского вина "Новое русское вино".
+This repository is a website design project of the company-producer of wines.
 
-## Запуск
+## How to install 
+To start the project, you should download the repository to your device. 
+- Python3 and pip should already be installed.
+- Add the file `wine3.xlsx` with products info next to 'main.py'. Approximate file content:
 
-- Скачайте код
-- Запустите сайт командой `python3 main.py`
-- Перейдите на сайт по адресу [http://127.0.0.1:8000](http://127.0.0.1:8000).
+| Категория     | Название           | Сорт            | Цена       | Картинка             | Акция                |
+| ------------- |:------------------:|:---------------:|:----------:|:--------------------:|:--------------------:|
+| Белые вина    | Белая леди         | Дамский пальчик |399         | belaya_ledi.png      | Выгодное предложение |
 
-## Цели проекта
+- Use pip (or pip3, there is a conflict with Python2) to install dependencies from a file in the repository: shell pip install -r
+requirements.txt
 
-Код написан в учебных целях — это урок в курсе по Python и веб-разработке на сайте [Devman](https://dvmn.org).
+## How to run
+
+- Open project directory from cmd and execute:
+```
+$ python3 main.py
+```
+
+In browser open 'http://127.0.0.1:8000/'
+
+
+## Project purposes
+
+The code is written for educational purposes - a tutorial on Python and web development on the site [Devman](https://dvmn.org).

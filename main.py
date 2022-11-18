@@ -1,9 +1,9 @@
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from jinja2 import Environment, FileSystemLoader, select_autoescape
-import datetime
-import pandas
 from pprint import pprint
 import collections
+import datetime
+import pandas
 
 
 def est_counter():
@@ -25,9 +25,8 @@ def get_wines_from_excel(filename, sheet_name=0):
         na_values=None,
         keep_default_na=False,
     )
-    # pprint(excel_data_df)
+
     translate2dict = excel_data_df.to_dict(orient='record')
-    pprint(translate2dict)
     wines = collections.defaultdict(list)
     for wine in translate2dict:
         category = wine['Категория']
@@ -40,9 +39,7 @@ env = Environment(
     loader=FileSystemLoader('.'),
     autoescape=select_autoescape(['html', 'xml'])
 )
-
 template = env.get_template('template.html')
-
 rendered_page = template.render(
     established_counter=est_counter(),
     products=get_wines_from_excel('wine3.xlsx')
