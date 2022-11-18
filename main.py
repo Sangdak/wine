@@ -42,7 +42,7 @@ env = Environment(
 template = env.get_template('template.html')
 rendered_page = template.render(
     established_counter=est_counter(),
-    products=get_wines_from_excel('wine3.xlsx')
+    products=get_wines_from_excel('products.xlsx')
 )
 
 with open('index.html', 'w', encoding="utf8") as file:
