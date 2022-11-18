@@ -26,9 +26,9 @@ def get_wines_from_excel(filename, sheet_name=0):
         keep_default_na=False,
     )
 
-    translate2dict = excel_data_df.to_dict(orient='record')
+    translated_excel = excel_data_df.to_dict(orient='record')
     wines = collections.defaultdict(list)
-    for wine in translate2dict:
+    for wine in translated_excel:
         category = wine['Категория']
         wines[category].append(wine)
     products_from_excel = {key: value for key, value in sorted(wines.items())}
