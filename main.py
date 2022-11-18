@@ -43,13 +43,9 @@ env = Environment(
 
 template = env.get_template('template.html')
 
-prod = get_wines_from_excel('wine2.xlsx')
-pprint(prod)
-
 rendered_page = template.render(
     established_counter=est_counter(),
-    products=prod
-    # products=get_wines_from_excel('wine2.xlsx'),
+    products=get_wines_from_excel('wine3.xlsx')
 )
 
 with open('index.html', 'w', encoding="utf8") as file:
