@@ -6,7 +6,7 @@ import datetime
 import pandas
 
 
-def est_counter():
+def count_years_from_establish():
     est_year = 1920
     now_year = datetime.date.today().year
     num_of_years = now_year - est_year
@@ -42,7 +42,7 @@ def main():
     )
     template = env.get_template('template.html')
     rendered_page = template.render(
-        established_counter=est_counter(),
+        established_counter=count_years_from_establish(),
         products=get_wines_from_excel('products.xlsx')
     )
 
