@@ -5,7 +5,7 @@ This repository is a website design project of the company-producer of wines.
 ## How to install 
 To start the project, you should download the repository to your device. 
 - Python3 and pip should already be installed.
-- Add the file `products.xlsx` with products info next to 'main.py'. Approximate file content:
+- Add the file `products.xlsx` (or another Excel file '*.xlsx' with name, that you chose) with products info next to 'main.py'. Approximate file content:
 
 | Категория     | Название           | Сорт            | Цена       | Картинка             | Акция                |
 | ------------- |:------------------:|:---------------:|:----------:|:--------------------:|:--------------------:|
@@ -21,6 +21,10 @@ To start the project, you should download the repository to your device.
 - Open project directory from cmd and execute:
 ```shell
 $ python3 main.py
+```
+or, if your file placed not in root directory, or it's name isn't 'products.xlsx', for example:
+```shell
+$ python3 main.py -f ./user/test.xlsx
 ```
 
 In browser open 'http://127.0.0.1:8000/'

@@ -1,6 +1,6 @@
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from jinja2 import Environment, FileSystemLoader, select_autoescape
-from pprint import pprint
+import argparse
 import collections
 import datetime
 import pandas
@@ -18,9 +18,9 @@ def count_years_from_establish():
         return f'{winery_age} года'
 
 
-def get_wines_from_excel(filename, sheet_name=0):
+def get_wines_from_excel(filepath, sheet_name=0):
     excel_data_df = pandas.read_excel(
-        filename,
+        filepath,
         sheet_name=sheet_name,
         na_values=None,
         keep_default_na=False,
@@ -36,6 +36,12 @@ def get_wines_from_excel(filename, sheet_name=0):
 
 
 def main():
+    parser = argparse.ArgumentParser(
+        description='This script starts winery site locally.'
+    )
+    parser.add_argument('-f', '--products_file_path', help='Products filepath', default='products.xlsx')
+    args = parser.parse_args()
+
     env = Environment(
         loader=FileSystemLoader('.'),
         autoescape=select_autoescape(['html', 'xml'])
@@ -43,7 +49,7 @@ def main():
     template = env.get_template('template.html')
     rendered_page = template.render(
         established_counter=count_years_from_establish(),
-        products=get_wines_from_excel('products.xlsx')
+        products=get_wines_from_excel(args.products_file_path)
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
