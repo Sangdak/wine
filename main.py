@@ -7,15 +7,15 @@ import pandas
 
 
 def count_years_from_establish():
-    est_year = 1920
+    establish_year = 1920
     now_year = datetime.date.today().year
-    num_of_years = now_year - est_year
-    if 10 < num_of_years % 100 < 20 or num_of_years % 10 in (0, 5, 6, 7, 8, 9):
-        return f'{num_of_years} лет'
-    elif num_of_years % 10 == 1:
-        return f'{num_of_years} год'
+    winery_age = now_year - establish_year
+    if 10 < winery_age % 100 < 20 or winery_age % 10 in (0, 5, 6, 7, 8, 9):
+        return f'{winery_age} лет'
+    elif winery_age % 10 == 1:
+        return f'{winery_age} год'
     else:
-        return f'{num_of_years} года'
+        return f'{winery_age} года'
 
 
 def get_wines_from_excel(filename, sheet_name=0):
@@ -31,8 +31,8 @@ def get_wines_from_excel(filename, sheet_name=0):
     for wine in translate2dict:
         category = wine['Категория']
         wines[category].append(wine)
-    output = {key: value for key, value in sorted(wines.items())}
-    return output
+    products_from_excel = {key: value for key, value in sorted(wines.items())}
+    return products_from_excel
 
 
 def main():
