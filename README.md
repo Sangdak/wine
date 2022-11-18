@@ -11,13 +11,15 @@ To start the project, you should download the repository to your device.
 | ------------- |:------------------:|:---------------:|:----------:|:--------------------:|:--------------------:|
 | Белые вина    | Белая леди         | Дамский пальчик |399         | belaya_ledi.png      | Выгодное предложение |
 
-- Use pip (or pip3, there is a conflict with Python2) to install dependencies from a file in the repository: shell pip install -r
-requirements.txt
+- Use pip (or pip3, there is a conflict with Python2) to install dependencies from a file in the repository: 
+```shell 
+  pip install -r requirements.txt
+```
 
 ## How to run
 
 - Open project directory from cmd and execute:
-```
+```shell
 $ python3 main.py
 ```
 
